@@ -1,0 +1,13 @@
+{
+  "itemGroup.tormentum": "Example Mod Tab",
+  "block.tormentum.example_block": "Example Block",
+  "item.tormentum.example_item": "Example Item",
+
+  "tormentum.configuration.title": "Tormentum Configs",
+  "tormentum.configuration.section.tormentum.common.toml": "Tormentum Configs",
+  "tormentum.configuration.section.tormentum.common.toml.title": "Tormentum Configs",
+  "tormentum.configuration.items": "Item List",
+  "tormentum.configuration.logDirtBlock": "Log Dirt Block",
+  "tormentum.configuration.magicNumberIntroduction": "Magic Number Text",
+  "tormentum.configuration.magicNumber": "Magic Number"
+}

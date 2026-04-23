@@ -1,0 +1,6 @@
+{
+	"parent": "tormentum:block/chalk_side_alt",
+	"textures": {
+		"line": "tormentum:block/chalk_line1"
+	}
+}

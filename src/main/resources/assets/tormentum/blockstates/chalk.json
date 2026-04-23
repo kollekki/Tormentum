@@ -1,0 +1,68 @@
+{
+	"multipart": [
+		{
+			"when": {
+				"OR": [
+					{
+						"north": "none",
+						"south": "none",
+						"east": "none",
+						"west": "none"
+					}
+				]
+			},
+			"apply": {
+				"model": "tormentum:block/chalk_dot"
+			}
+		},
+
+		{
+			"when": { "north": "side|up" },
+			"apply": { "model": "tormentum:block/chalk_side0" }
+		},
+		{
+			"when": { "south": "side|up" },
+			"apply": { "model": "tormentum:block/chalk_side_alt0" }
+		},
+		{
+			"when": { "east": "side|up" },
+			"apply": {
+				"model": "tormentum:block/chalk_side_alt1",
+				"y": 270
+			}
+		},
+		{
+			"when": { "west": "side|up" },
+			"apply": {
+				"model": "tormentum:block/chalk_side1",
+				"y": 270
+			}
+		},
+
+		{
+			"when": { "north": "up" },
+			"apply": { "model": "tormentum:block/chalk_up" }
+		},
+		{
+			"when": { "east": "up" },
+			"apply": {
+				"model": "tormentum:block/chalk_up",
+				"y": 90
+			}
+		},
+		{
+			"when": { "south": "up" },
+			"apply": {
+				"model": "tormentum:block/chalk_up",
+				"y": 180
+			}
+		},
+		{
+			"when": { "west": "up" },
+			"apply": {
+				"model": "tormentum:block/chalk_up",
+				"y": 270
+			}
+		}
+	]
+}
