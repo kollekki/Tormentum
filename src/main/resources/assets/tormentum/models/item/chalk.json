@@ -1,3 +1,6 @@
 {
-	"parent": "tormentum:block/chalk_dot"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "tormentum:item/chalk"
+    }
 }

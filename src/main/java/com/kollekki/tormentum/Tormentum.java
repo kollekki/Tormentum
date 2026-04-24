@@ -1,11 +1,11 @@
 package com.kollekki.tormentum;
 
 import org.slf4j.Logger;
-import com.kollekki.tormentum.items.*;
 import com.mojang.logging.LogUtils;
 import com.kollekki.tormentum.items.*;
 import com.kollekki.tormentum.blocks.*;
 
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -33,7 +33,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-
 @Mod(Tormentum.MODID)
 public class Tormentum {
     
@@ -47,11 +46,11 @@ public class Tormentum {
     
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final DeferredBlock<Block> CHALK_BLOCK = BLOCKS.registerBlock("chalk",ChalkBlock::new, p -> p.mapColor(MapColor.QUARTZ).noCollision().instabreak());
+    public static final DeferredBlock<Block> CHALK_BLOCK = BLOCKS.registerBlock("chalk_block",ChalkBlock::new, p -> p.sound(SoundType.SAND).mapColor(MapColor.QUARTZ).noCollision().instabreak());
     
     public static final DeferredItem<Item> CHALK = ITEMS.registerItem("chalk", ChalkItem::new);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("tormentum", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tormentum")) 
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> CHALK.get().getDefaultInstance())

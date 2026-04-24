@@ -103,6 +103,9 @@ public class ChalkBlock extends Block {
 
 		if (existing.is(this)) return null;
 
+		BlockState clicked = ctx.getLevel().getBlockState(ctx.getClickedPos().relative(ctx.getClickedFace().getOpposite()));
+		if (clicked.is(this)) return null;
+
 		return updateState(ctx.getLevel(), pos);
 	}
 

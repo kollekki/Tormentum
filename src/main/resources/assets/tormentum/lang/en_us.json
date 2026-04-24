@@ -1,7 +1,7 @@
 {
-  "itemGroup.tormentum": "Example Mod Tab",
-  "block.tormentum.example_block": "Example Block",
-  "item.tormentum.example_item": "Example Item",
+  "itemGroup.tormentum": "Tormentum",
+  "block.tormentum.chalk": "Chalk",
+  "item.tormentum.chalk": "Chalk",
 
   "tormentum.configuration.title": "Tormentum Configs",
   "tormentum.configuration.section.tormentum.common.toml": "Tormentum Configs",
