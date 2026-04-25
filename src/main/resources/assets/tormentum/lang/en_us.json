@@ -3,6 +3,7 @@
   "block.tormentum.chalk": "Chalk",
   "item.tormentum.chalk": "Chalk",
   "item.tormentum.butter_knife": "Butter Knife",
+  "item.tormentum.mortar_and_pestle": "Mortar and Pestle",
   "effect.tormentum.bleeding": "Bleeding",
   "death.attack.tormentum.bleeding": "%1$s followed their own trail to the end.",
   "death.attack.tormentum.bleeding.player": "%2$s wrote %1$s's end in blood",

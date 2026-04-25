@@ -1,0 +1,10 @@
+{
+  "multipart": [
+    { "when": { "down": "true" }, "apply": { "model": "tormentum:block/blood_puddle_floor" } },
+
+    { "when": { "north": "true" }, "apply": { "model": "tormentum:block/blood_puddle_wall" } },
+    { "when": { "south": "true" }, "apply": { "model": "tormentum:block/blood_puddle_wall", "y": 180 } },
+    { "when": { "east": "true" },  "apply": { "model": "tormentum:block/blood_puddle_wall", "y": 90 } },
+    { "when": { "west": "true" },  "apply": { "model": "tormentum:block/blood_puddle_wall", "y": 270 } }
+  ]
+}

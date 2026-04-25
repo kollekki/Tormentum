@@ -1,4 +1,4 @@
-package com.kollekki.tormentum.items;
+package com.kollekki.tormentum.Items;
 
 import com.kollekki.tormentum.Tormentum;
 import net.minecraft.core.BlockPos;

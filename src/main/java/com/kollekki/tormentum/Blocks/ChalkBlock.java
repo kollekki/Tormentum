@@ -1,4 +1,4 @@
-package com.kollekki.tormentum.blocks;
+package com.kollekki.tormentum.Blocks;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;

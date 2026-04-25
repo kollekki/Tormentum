@@ -3,6 +3,7 @@
   "block.tormentum.chalk": "Giz",
   "item.tormentum.chalk": "Giz",
   "item.tormentum.butter_knife": "Balisong",
+  "item.tormentum.mortar_and_pestle": "Pilão",
   "effect.tormentum.bleeding": "Sangramento",
   "death.attack.tormentum.bleeding": "%1$s seguiu seu próprio rastro até o fim.",
   "death.attack.tormentum.bleeding.player": "%2$s escreveu o fim de %1$s em sangue.",
