@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "tormentum:block/blood_stain", "y": 0 },
+      { "model": "tormentum:block/blood_stain", "y": 90 },
+      { "model": "tormentum:block/blood_stain", "y": 180 },
+      { "model": "tormentum:block/blood_stain", "y": 270 }
+    ]
+  }
+}

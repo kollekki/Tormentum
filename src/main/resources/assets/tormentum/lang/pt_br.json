@@ -1,11 +1,11 @@
 {
   "itemGroup.tormentum": "Tormentum",
-  "block.tormentum.chalk": "Chalk",
-  "item.tormentum.chalk": "Chalk",
-  "item.tormentum.butter_knife": "Butter Knife",
-  "effect.tormentum.bleeding": "Bleeding",
-  "death.attack.tormentum.bleeding": "%1$s followed their own trail to the end.",
-  "death.attack.tormentum.bleeding.player": "%2$s wrote %1$s's end in blood",
+  "block.tormentum.chalk": "Giz",
+  "item.tormentum.chalk": "Giz",
+  "item.tormentum.butter_knife": "Balisong",
+  "effect.tormentum.bleeding": "Sangramento",
+  "death.attack.tormentum.bleeding": "%1$s seguiu seu próprio rastro até o fim.",
+  "death.attack.tormentum.bleeding.player": "%2$s escreveu o fim de %1$s em sangue.",
 
   "tormentum.configuration.title": "Tormentum Configs",
   "tormentum.configuration.section.tormentum.common.toml": "Tormentum Configs",
