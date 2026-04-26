@@ -37,7 +37,7 @@ public class BleedingEffect extends MobEffect {
         DAMAGE_TIMER.put(id, timer);
 
         BlockPos feetPos = entity.blockPosition();
-        if (timer >= 40) {
+        if (timer >= 25) {
             DAMAGE_TIMER.put(id, 0);
 
             BlockState current = level.getBlockState(feetPos);

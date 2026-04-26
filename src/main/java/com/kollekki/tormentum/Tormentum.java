@@ -10,9 +10,12 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.kollekki.tormentum.Items.*;
+import com.kollekki.tormentum.BlockEntities.*;
 import com.kollekki.tormentum.Blocks.*;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,6 +40,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.function.Supplier;
 
 
 @Mod(Tormentum.MODID)
@@ -54,10 +58,24 @@ public class Tormentum {
 
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, MODID);
 
-    public static final DeferredBlock<Block> CHALK_BLOCK = BLOCKS.registerBlock("chalk_block",ChalkBlock::new, p -> p.sound(SoundType.SAND).mapColor(MapColor.QUARTZ).noCollision().instabreak());
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MODID);
 
-    public static final DeferredBlock<Block> BLOOD_STAIN = BLOCKS.registerBlock("blood_stain",BloodStain::new, p -> p.sound(SoundType.MUD).noCollision().instabreak().noLootTable().strength(0, 0).forceSolidOn().mapColor(MapColor.COLOR_RED));
-    public static final DeferredBlock<Block> BLOOD_PUDDLE = BLOCKS.registerBlock("blood_puddle",BloodPuddle::new, p -> p.sound(SoundType.MUD).noCollision().instabreak().noLootTable().strength(0, 0).forceSolidOn().mapColor(MapColor.COLOR_RED));
+    public static final DeferredBlock<Block> CRACKED_SKULL_BLOCK = BLOCKS.registerBlock("cracked_skull",
+            CrackedSkullBlock::new,
+            p -> p.sound(SoundType.BONE_BLOCK).mapColor(MapColor.QUARTZ).noOcclusion());
+
+    public static final DeferredItem<BlockItem> CRACKED_SKULL_ITEM = ITEMS.registerSimpleBlockItem("cracked_skull", CRACKED_SKULL_BLOCK);
+
+    public static final DeferredBlock<Block> CHALK_BLOCK = BLOCKS.registerBlock("chalk_block",
+            ChalkBlock::new,
+            p -> p.sound(SoundType.SAND).mapColor(MapColor.QUARTZ).noCollision().instabreak());
+
+    public static final DeferredBlock<Block> BLOOD_STAIN = BLOCKS.registerBlock("blood_stain",
+            BloodStain::new,
+            p -> p.sound(SoundType.MUD).noCollision().instabreak().noLootTable().strength(0, 0).forceSolidOn().mapColor(MapColor.COLOR_RED));
+    public static final DeferredBlock<Block> BLOOD_PUDDLE = BLOCKS.registerBlock("blood_puddle",
+            BloodPuddle::new,
+            p -> p.sound(SoundType.MUD).noCollision().instabreak().noLootTable().strength(0, 0).forceSolidOn().mapColor(MapColor.COLOR_RED));
 
     public static final DeferredItem<Item> MORTAR_AND_PESTLE = ITEMS.registerSimpleItem("mortar_and_pestle", p -> p.stacksTo(1));
 
@@ -65,9 +83,21 @@ public class Tormentum {
 
     public static final DeferredItem<Item> BUTTER_KNIFE = ITEMS.registerItem("butter_knife", ButterKnife::new, p -> p.stacksTo(1).useCooldown(5));
 
-    public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECTS.register("bleeding", () -> new BleedingEffect(MobEffectCategory.HARMFUL, 0xff0000)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.fromNamespaceAndPath("tormentum", "effect.bleeding_slow"), -0.7, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+    public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECTS.register("bleeding",
+            () -> new BleedingEffect(
+                    MobEffectCategory.HARMFUL,
+                    0xff0000
+            )
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.fromNamespaceAndPath("tormentum", "effect.bleeding_slow"), -0.45, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
     );
+
+    public static final Supplier<BlockEntityType<CrackedSkullBlockEntity>> CRACKED_SKULL_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("cracked_skull",
+                    () -> new BlockEntityType<>(
+                            CrackedSkullBlockEntity::new,
+                            false,
+                            CRACKED_SKULL_BLOCK.get()
+                    ));
 
     public static final ResourceKey<DamageType> BLEEDING_DAMAGE =
             ResourceKey.create(
@@ -92,6 +122,7 @@ public class Tormentum {
                 output.accept(CHALK.get());
                 output.accept(BUTTER_KNIFE.get());
                 output.accept(MORTAR_AND_PESTLE.get());
+                output.accept(CRACKED_SKULL_ITEM.get());
             }).build());
 
     public Tormentum(IEventBus modEventBus, ModContainer modContainer) {
@@ -104,6 +135,8 @@ public class Tormentum {
         CREATIVE_MODE_TABS.register(modEventBus);
 
         MOB_EFFECTS.register(modEventBus);
+
+        BLOCK_ENTITIES.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
