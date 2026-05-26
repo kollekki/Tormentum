@@ -56,11 +56,11 @@ public class BloodStain extends Block {
             return Tormentum.BLOOD_STAIN.get().defaultBlockState().setValue(VARIANT, StainVariant.DOT);
         }
 
-        if (ax >= az * 1.2D) {
+        if (ax >= az * 1.7D) {
             return Tormentum.BLOOD_STAIN.get().defaultBlockState().setValue(VARIANT, StainVariant.LINE_X);
         }
 
-        if (az >= ax * 1.2D) {
+        if (az >= ax * 1.7D) {
             return Tormentum.BLOOD_STAIN.get().defaultBlockState().setValue(VARIANT, StainVariant.LINE_Z);
         }
 

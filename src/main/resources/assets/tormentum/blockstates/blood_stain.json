@@ -1,11 +1,35 @@
 {
   "variants": {
-    "variant=dot": { "model": "tormentum:block/blood_stain_dot" },
+    "variant=dot": [
+      { "model": "tormentum:block/blood_stain_dot" }
+    ],
 
-    "variant=line_x": { "model": "tormentum:block/blood_stain_line", "y": 90 },
-    "variant=line_z": { "model": "tormentum:block/blood_stain_line" },
+    "variant=line_x": [
+      { "model": "tormentum:block/blood_stain_line_1", "y": 90 },
+      { "model": "tormentum:block/blood_stain_line_1", "y": 270 },
+      { "model": "tormentum:block/blood_stain_line_2", "y": 90 },
+      { "model": "tormentum:block/blood_stain_line_2", "y": 270 }
+    ],
 
-    "variant=diag_ne_sw": { "model": "tormentum:block/blood_stain_diagonal", "y": 90 },
-    "variant=diag_nw_se": { "model": "tormentum:block/blood_stain_diagonal" }
+    "variant=line_z": [
+      { "model": "tormentum:block/blood_stain_line_1", "y": 0 },
+      { "model": "tormentum:block/blood_stain_line_1", "y": 180 },
+      { "model": "tormentum:block/blood_stain_line_2", "y": 0 },
+      { "model": "tormentum:block/blood_stain_line_2", "y": 180 }
+    ],
+
+    "variant=diag_ne_sw": [
+      { "model": "tormentum:block/blood_stain_diagonal_1", "y": 90 },
+      { "model": "tormentum:block/blood_stain_diagonal_1", "y": 270 },
+      { "model": "tormentum:block/blood_stain_diagonal_2", "y": 90 },
+      { "model": "tormentum:block/blood_stain_diagonal_2", "y": 270 }
+    ],
+
+    "variant=diag_nw_se": [
+      { "model": "tormentum:block/blood_stain_diagonal_1", "y": 0 },
+      { "model": "tormentum:block/blood_stain_diagonal_1", "y": 180 },
+      { "model": "tormentum:block/blood_stain_diagonal_2", "y": 0 },
+      { "model": "tormentum:block/blood_stain_diagonal_2", "y": 180 }
+    ]
   }
 }

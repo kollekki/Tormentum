@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tormentum:item/butter_knife"
+    "layer0": "tormentum:item/athame"
   }
 }

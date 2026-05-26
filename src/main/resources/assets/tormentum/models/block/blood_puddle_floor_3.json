@@ -1,0 +1,15 @@
+{
+  "textures": {
+    "all": "tormentum:block/blood_puddle_floor_3",
+    "particle": "tormentum:block/blood_puddle_floor_3"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 0.1, 16],
+      "faces": {
+        "up": { "texture": "#all" }
+      }
+    }
+  ]
+}

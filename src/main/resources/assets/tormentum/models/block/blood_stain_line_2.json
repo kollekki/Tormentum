@@ -1,7 +1,7 @@
 {
   "textures": {
-    "all": "tormentum:block/blood_stain_2",
-    "particle": "tormentum:block/blood_puddle_floor"
+    "all": "tormentum:block/blood_stain_2_2",
+    "particle": "tormentum:block/blood_puddle_floor_1"
   },
   "elements": [
     {

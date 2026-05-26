@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    ",.,",
+    " / "
+  ],
+  "key": {
+    "#": "minecraft:bone",
+    ".": "minecraft:obsidian",
+    ",": "iron_nugget",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "tormentum:athame"
+  }
+}

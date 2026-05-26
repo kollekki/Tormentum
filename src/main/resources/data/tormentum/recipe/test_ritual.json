@@ -1,0 +1,11 @@
+{
+  "type": "tormentum:ritual",
+  "ritualTime": 200,
+  "ritualSkull": "tormentum:cracked_skull",
+  "ritualCatalyst": "minecraft:poppy",
+  "chalkSquareSize": 5,
+  "bloodConsumption": 4,
+  "herbsConsumption": 0,
+  "customBlocksNeeded": [],
+  "resultItem": "minecraft:wither_rose"
+}

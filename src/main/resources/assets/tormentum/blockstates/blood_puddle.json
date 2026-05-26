@@ -1,6 +1,29 @@
 {
   "multipart": [
-    { "when": { "down": "true" }, "apply": { "model": "tormentum:block/blood_puddle_floor" } },
+    {
+      "when": { "down": "true" },
+      "apply": [
+        { "model": "tormentum:block/blood_puddle_floor_1", "y": 0,   "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_1", "y": 90,  "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_1", "y": 180, "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_1", "y": 270, "weight": 1 },
+
+        { "model": "tormentum:block/blood_puddle_floor_2", "y": 0,   "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_2", "y": 90,  "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_2", "y": 180, "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_2", "y": 270, "weight": 1 },
+
+        { "model": "tormentum:block/blood_puddle_floor_3", "y": 0,   "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_3", "y": 90,  "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_3", "y": 180, "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_3", "y": 270, "weight": 1 },
+
+        { "model": "tormentum:block/blood_puddle_floor_4", "y": 0,   "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_4", "y": 90,  "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_4", "y": 180, "weight": 1 },
+        { "model": "tormentum:block/blood_puddle_floor_4", "y": 270, "weight": 1 }
+      ]
+    },
 
     { "when": { "north": "true" }, "apply": { "model": "tormentum:block/blood_puddle_wall" } },
     { "when": { "south": "true" }, "apply": { "model": "tormentum:block/blood_puddle_wall", "y": 180 } },

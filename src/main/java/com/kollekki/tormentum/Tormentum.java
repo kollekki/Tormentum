@@ -1,6 +1,7 @@
 package com.kollekki.tormentum;
 
 import com.kollekki.tormentum.Effects.BleedingEffect;
+import com.kollekki.tormentum.Recipes.ModRecipes;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
@@ -39,7 +40,6 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
 import java.util.function.Supplier;
 
 
@@ -81,14 +81,14 @@ public class Tormentum {
 
     public static final DeferredItem<Item> CHALK = ITEMS.registerItem("chalk", ChalkItem::new, p -> p.stacksTo(1));
 
-    public static final DeferredItem<Item> BUTTER_KNIFE = ITEMS.registerItem("butter_knife", ButterKnife::new, p -> p.stacksTo(1).useCooldown(5));
+    public static final DeferredItem<Item> ATHAME = ITEMS.registerItem("athame", Athame::new, p -> p.stacksTo(1).useCooldown(6));
 
     public static final DeferredHolder<MobEffect, MobEffect> BLEEDING = MOB_EFFECTS.register("bleeding",
             () -> new BleedingEffect(
                     MobEffectCategory.HARMFUL,
                     0xff0000
             )
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.fromNamespaceAndPath("tormentum", "effect.bleeding_slow"), -0.45, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.fromNamespaceAndPath("tormentum", "effect.bleeding_slow"), -0.65, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
     );
 
     public static final Supplier<BlockEntityType<CrackedSkullBlockEntity>> CRACKED_SKULL_BLOCK_ENTITY =
@@ -120,7 +120,7 @@ public class Tormentum {
             .icon(() -> CHALK.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(CHALK.get());
-                output.accept(BUTTER_KNIFE.get());
+                output.accept(ATHAME.get());
                 output.accept(MORTAR_AND_PESTLE.get());
                 output.accept(CRACKED_SKULL_ITEM.get());
             }).build());
@@ -129,14 +129,12 @@ public class Tormentum {
         modEventBus.addListener(this::commonSetup);
 
         BLOCKS.register(modEventBus);
-
         ITEMS.register(modEventBus);
-
         CREATIVE_MODE_TABS.register(modEventBus);
-
         MOB_EFFECTS.register(modEventBus);
-
         BLOCK_ENTITIES.register(modEventBus);
+        ModRecipes.TYPES.register(modEventBus);
+        ModRecipes.SERIALIZERS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

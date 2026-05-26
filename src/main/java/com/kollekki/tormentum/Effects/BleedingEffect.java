@@ -5,6 +5,7 @@ import com.kollekki.tormentum.Blocks.BloodStain;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.attribute.modifier.AttributeModifier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -37,7 +38,7 @@ public class BleedingEffect extends MobEffect {
         DAMAGE_TIMER.put(id, timer);
 
         BlockPos feetPos = entity.blockPosition();
-        if (timer >= 25) {
+        if (timer >= Math.max(10, 25 - amplifier * 5)) {
             DAMAGE_TIMER.put(id, 0);
 
             BlockState current = level.getBlockState(feetPos);
@@ -73,7 +74,7 @@ public class BleedingEffect extends MobEffect {
                 }
             }
 
-            entity.hurt(bleedingDamage(entity), 2.0F);
+            entity.hurt(bleedingDamage(entity), 2.0F + amplifier);
         }
 
         if (lastPos == null || !entity.onGround()) {
@@ -97,6 +98,12 @@ public class BleedingEffect extends MobEffect {
         }
 
         return true;
+    }
+
+    @Override
+    public void onEffectStarted(LivingEntity entity, int amplifier) {
+        float initialDamage = 5.0F + amplifier * 2.0F;
+        entity.hurt(bleedingDamage(entity), initialDamage);
     }
 
     @Override

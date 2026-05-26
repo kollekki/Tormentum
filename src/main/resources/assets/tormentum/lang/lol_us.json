@@ -1,0 +1,19 @@
+{
+  "itemGroup.tormentum": "Tormentum",
+  "block.tormentum.chalk": "Magik Scribbl Stik",
+  "block.tormentum.cracked_skull": "Craekd Skul",
+  "item.tormentum.chalk": "Magik Scribbl Stik",
+  "item.tormentum.athame": "Pokey Athameh",
+  "item.tormentum.mortar_and_pestle": "Grindy Bowl an Bonk Stik",
+  "effect.tormentum.bleeding": "MAKIN RED WATR",
+  "death.attack.tormentum.bleeding": "%1$s iz now moderne artz",
+  "death.attack.tormentum.bleeding.player": "%2$s wrote fanfic bout %1$s usin blud",
+
+  "tormentum.configuration.title": "Tormentum Konfigz",
+  "tormentum.configuration.section.tormentum.common.toml": "Tormentum Konfigz",
+  "tormentum.configuration.section.tormentum.common.toml.title": "Tormentum Konfigz",
+  "tormentum.configuration.items": "Item List",
+  "tormentum.configuration.logDirtBlock": "Log Dirt Block",
+  "tormentum.configuration.magicNumberIntroduction": "Magic Number Text",
+  "tormentum.configuration.magicNumber": "Magic Number"
+}

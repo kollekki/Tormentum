@@ -1,0 +1,11 @@
+{
+  "type": "tormentum:ritual",
+  "ritualTime": 600,
+  "ritualSkull": "tormentum:cracked_skull",
+  "ritualCatalyst": "minecraft:netherite_ingot",
+  "chalkSquareSize": 7,
+  "bloodConsumption": 50,
+  "herbsConsumption": 0,
+  "customBlocksNeeded": [],
+  "resultEntity": "minecraft:skeleton"
+}

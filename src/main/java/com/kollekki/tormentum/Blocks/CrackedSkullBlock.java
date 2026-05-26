@@ -14,6 +14,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +23,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+
+import static com.kollekki.tormentum.Tormentum.CRACKED_SKULL_BLOCK_ENTITY;
 
 public class CrackedSkullBlock extends Block implements EntityBlock {
     public static final MapCodec<CrackedSkullBlock> CODEC = simpleCodec(CrackedSkullBlock::new);
@@ -103,5 +107,19 @@ public class CrackedSkullBlock extends Block implements EntityBlock {
             }
         }
         return super.playerWillDestroy(level, pos, state, player);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
+            Level level, BlockState state, BlockEntityType<T> type) {
+
+        if (level.isClientSide()) return null;
+
+        if (type == CRACKED_SKULL_BLOCK_ENTITY.get()) {
+            return (BlockEntityTicker<T>)
+                    (BlockEntityTicker<CrackedSkullBlockEntity>) CrackedSkullBlockEntity::tick;
+        }
+        return null;
     }
 }
