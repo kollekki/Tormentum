@@ -5,6 +5,7 @@
   "item.tormentum.chalk": "Chalk",
   "item.tormentum.athame": "Athame",
   "item.tormentum.mortar_and_pestle": "Mortar and Pestle",
+  "item.tormentum.ficovat_heart": "Ficovat Heart",
   "effect.tormentum.bleeding": "Bleeding",
   "death.attack.tormentum.bleeding": "%1$s painted contemporary art on the ground",
   "death.attack.tormentum.bleeding.player": "%2$s wrote a poem with %1$s's blood",

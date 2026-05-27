@@ -79,6 +79,9 @@ public class Tormentum {
 
     public static final DeferredItem<Item> MORTAR_AND_PESTLE = ITEMS.registerSimpleItem("mortar_and_pestle", p -> p.stacksTo(1));
 
+    public static final DeferredItem<Item> FICOVAT_HEART = ITEMS.registerSimpleItem("ficovat_heart");
+
+
     public static final DeferredItem<Item> CHALK = ITEMS.registerItem("chalk", ChalkItem::new, p -> p.stacksTo(1));
 
     public static final DeferredItem<Item> ATHAME = ITEMS.registerItem("athame", Athame::new, p -> p.stacksTo(1).useCooldown(6));
@@ -117,12 +120,13 @@ public class Tormentum {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("tormentum", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tormentum"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> CHALK.get().getDefaultInstance())
+            .icon(() -> FICOVAT_HEART.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(CHALK.get());
                 output.accept(ATHAME.get());
                 output.accept(MORTAR_AND_PESTLE.get());
                 output.accept(CRACKED_SKULL_ITEM.get());
+                output.accept(FICOVAT_HEART.get());
             }).build());
 
     public Tormentum(IEventBus modEventBus, ModContainer modContainer) {
