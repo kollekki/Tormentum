@@ -2,8 +2,11 @@
   "itemGroup.tormentum": "Tormentum",
   "block.tormentum.chalk": "Magik Scribbl Stik",
   "block.tormentum.cracked_skull": "Craekd Skul",
+  "block.tormentum.blood_puddle": "Blud puddl",
+  "block.tormentum.blood_stain": "Blud stain",
   "item.tormentum.chalk": "Magik Scribbl Stik",
   "item.tormentum.athame": "Pokey Athameh",
+  "item.tormentum.mop": "Floof Stik",
   "item.tormentum.mortar_and_pestle": "Grindy Bowl an Bonk Stik",
   "item.tormentum.ficovat_heart": "FikoCAT Hart",
   "effect.tormentum.bleeding": "MAKIN RED WATR",
@@ -16,5 +19,5 @@
   "tormentum.configuration.items": "Item List",
   "tormentum.configuration.logDirtBlock": "Log Dirt Block",
   "tormentum.configuration.magicNumberIntroduction": "Magic Number Text",
-  "tormentum.configuration.magicNumber": "Magic Number"
+  "tormentum.configuration.magicNumber": "Magic Number",
 }

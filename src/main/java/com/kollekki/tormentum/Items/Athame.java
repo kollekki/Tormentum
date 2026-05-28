@@ -16,7 +16,7 @@ public class Athame extends Item {
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         if (!level.isClientSide()) {
-            player.addEffect(new MobEffectInstance(Tormentum.BLEEDING, 100, 0, false, false, false));
+            player.addEffect(new MobEffectInstance(Tormentum.BLEEDING, 100, 3, false, false, false));
         }
         return InteractionResult.SUCCESS;
     }

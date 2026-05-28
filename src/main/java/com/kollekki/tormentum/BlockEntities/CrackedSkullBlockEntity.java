@@ -1,5 +1,6 @@
 package com.kollekki.tormentum.BlockEntities;
 
+import com.kollekki.tormentum.Recipes.RitualInput;
 import com.kollekki.tormentum.Recipes.RitualRecipe;
 import com.kollekki.tormentum.Tormentum;
 import net.minecraft.core.BlockPos;
@@ -168,7 +169,10 @@ public class CrackedSkullBlockEntity extends BlockEntity {
     }
 
     private boolean matchesCatalyst(RitualRecipe recipe) {
-        if (recipe.ritualCatalyst == null || heldItem.isEmpty()) return false;
+        if (heldItem.isEmpty()) return false;
+        if (recipe.ritualCatalyst == null) {
+            return heldItem.isDamageableItem();
+        }
         return BuiltInRegistries.ITEM
                 .getOptional(recipe.ritualCatalyst)
                 .map(item -> heldItem.getItem() == item)
@@ -244,7 +248,6 @@ public class CrackedSkullBlockEntity extends BlockEntity {
     private void failRitual(ServerLevel serverLevel) {
         serverLevel.playSound(null, worldPosition,
                 SoundEvents.EVOKER_FANGS_ATTACK, SoundSource.BLOCKS, 1.0f, 0.5f);
-
         serverLevel.sendParticles(BLOOD_DUST_AMBIENT,
                 worldPosition.getX() + 0.5,
                 worldPosition.getY() + 0.5,
@@ -257,11 +260,9 @@ public class CrackedSkullBlockEntity extends BlockEntity {
         bloodConsumedCount   = 0;
 
         setHeldItemDirect(ItemStack.EMPTY);
-
         setChanged();
         serverLevel.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
     }
-
 
     private void completeRitual(ServerLevel serverLevel) {
         if (activeRecipe == null) return;
@@ -272,13 +273,9 @@ public class CrackedSkullBlockEntity extends BlockEntity {
         activeRecipe         = null;
         bloodConsumedCount   = 0;
 
-        if (recipe.resultItem != null) {
-            BuiltInRegistries.ITEM
-                    .getOptional(recipe.resultItem)
-                    .ifPresent(item -> setHeldItemDirect(item.getDefaultInstance()));
-        } else {
-            setHeldItemDirect(ItemStack.EMPTY);
-        }
+        RitualInput input = new RitualInput(heldItem);
+        ItemStack result = recipe.assemble(input, serverLevel, worldPosition);
+        setHeldItemDirect(result);
 
         if (recipe.resultEntity != null) {
             BuiltInRegistries.ENTITY_TYPE

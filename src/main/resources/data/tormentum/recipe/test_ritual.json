@@ -5,7 +5,9 @@
   "ritualCatalyst": "minecraft:poppy",
   "chalkSquareSize": 5,
   "bloodConsumption": 4,
-  "herbsConsumption": 0,
   "customBlocksNeeded": [],
-  "resultItem": "minecraft:wither_rose"
+  "effect": {
+    "type": "tormentum:transform",
+    "result_item": "minecraft:wither_rose"
+  }
 }

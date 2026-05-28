@@ -2,8 +2,11 @@
   "itemGroup.tormentum": "Tormentum",
   "block.tormentum.chalk": "Giz",
   "block.tormentum.cracked_skull": "Crânio Rachado",
+  "block.tormentum.blood_puddle": "Poça de Sngue",
+  "block.tormentum.blood_stain": "Mancha de Sangue",
   "item.tormentum.chalk": "Giz",
   "item.tormentum.athame": "Athame",
+  "item.tormentum.mop": "Esfregão",
   "item.tormentum.mortar_and_pestle": "Pilão",
   "item.tormentum.ficovat_heart": "Coração de Ficovat",
   "effect.tormentum.bleeding": "Sangramento",
@@ -16,5 +19,5 @@
   "tormentum.configuration.items": "Item List",
   "tormentum.configuration.logDirtBlock": "Log Dirt Block",
   "tormentum.configuration.magicNumberIntroduction": "Magic Number Text",
-  "tormentum.configuration.magicNumber": "Magic Number"
+  "tormentum.configuration.magicNumber": "Magic Number",
 }

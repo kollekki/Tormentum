@@ -2,6 +2,8 @@ package com.kollekki.tormentum;
 
 import com.kollekki.tormentum.Effects.BleedingEffect;
 import com.kollekki.tormentum.Recipes.ModRecipes;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
@@ -60,27 +62,36 @@ public class Tormentum {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MODID);
 
+    public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, MODID);
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> WATER_PUDDLE_PARTICLE =
+            PARTICLES.register(
+                    "water_puddle",
+                    () -> new SimpleParticleType(false)
+            );
+
     public static final DeferredBlock<Block> CRACKED_SKULL_BLOCK = BLOCKS.registerBlock("cracked_skull",
             CrackedSkullBlock::new,
-            p -> p.sound(SoundType.BONE_BLOCK).mapColor(MapColor.QUARTZ).noOcclusion());
+            p -> p.sound(SoundType.BONE_BLOCK).mapColor(MapColor.QUARTZ).noOcclusion().strength(1));
 
     public static final DeferredItem<BlockItem> CRACKED_SKULL_ITEM = ITEMS.registerSimpleBlockItem("cracked_skull", CRACKED_SKULL_BLOCK);
 
     public static final DeferredBlock<Block> CHALK_BLOCK = BLOCKS.registerBlock("chalk_block",
             ChalkBlock::new,
-            p -> p.sound(SoundType.SAND).mapColor(MapColor.QUARTZ).noCollision().instabreak());
+            p -> p.sound(SoundType.SAND).mapColor(MapColor.QUARTZ).noCollision().instabreak().replaceable().forceSolidOn().mapColor(MapColor.QUARTZ));
 
     public static final DeferredBlock<Block> BLOOD_STAIN = BLOCKS.registerBlock("blood_stain",
             BloodStain::new,
-            p -> p.sound(SoundType.MUD).noCollision().instabreak().noLootTable().strength(0, 0).forceSolidOn().mapColor(MapColor.COLOR_RED));
+            p -> p.sound(SoundType.MUD).noCollision().replaceable().strength(3, 5).forceSolidOn().mapColor(MapColor.COLOR_RED));
     public static final DeferredBlock<Block> BLOOD_PUDDLE = BLOCKS.registerBlock("blood_puddle",
             BloodPuddle::new,
-            p -> p.sound(SoundType.MUD).noCollision().instabreak().noLootTable().strength(0, 0).forceSolidOn().mapColor(MapColor.COLOR_RED));
+            p -> p.sound(SoundType.MUD).noCollision().replaceable().strength(3, 5).forceSolidOn().mapColor(MapColor.COLOR_RED));
 
     public static final DeferredItem<Item> MORTAR_AND_PESTLE = ITEMS.registerSimpleItem("mortar_and_pestle", p -> p.stacksTo(1));
 
-    public static final DeferredItem<Item> FICOVAT_HEART = ITEMS.registerSimpleItem("ficovat_heart");
+    public static final DeferredItem<Item> MOP = ITEMS.registerItem("mop", Mop::new, p -> p.stacksTo(1));
 
+    public static final DeferredItem<Item> FICOVAT_HEART = ITEMS.registerSimpleItem("ficovat_heart");
 
     public static final DeferredItem<Item> CHALK = ITEMS.registerItem("chalk", ChalkItem::new, p -> p.stacksTo(1));
 
@@ -91,7 +102,7 @@ public class Tormentum {
                     MobEffectCategory.HARMFUL,
                     0xff0000
             )
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.fromNamespaceAndPath("tormentum", "effect.bleeding_slow"), -0.65, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.fromNamespaceAndPath("tormentum", "effect.bleeding_slow"), -0.15, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
     );
 
     public static final Supplier<BlockEntityType<CrackedSkullBlockEntity>> CRACKED_SKULL_BLOCK_ENTITY =
@@ -124,6 +135,7 @@ public class Tormentum {
             .displayItems((parameters, output) -> {
                 output.accept(CHALK.get());
                 output.accept(ATHAME.get());
+                output.accept(MOP.get());
                 output.accept(MORTAR_AND_PESTLE.get());
                 output.accept(CRACKED_SKULL_ITEM.get());
                 output.accept(FICOVAT_HEART.get());
@@ -137,6 +149,7 @@ public class Tormentum {
         CREATIVE_MODE_TABS.register(modEventBus);
         MOB_EFFECTS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
+        PARTICLES.register(modEventBus);
         ModRecipes.TYPES.register(modEventBus);
         ModRecipes.SERIALIZERS.register(modEventBus);
 

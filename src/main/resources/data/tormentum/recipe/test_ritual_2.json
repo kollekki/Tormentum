@@ -5,7 +5,10 @@
   "ritualCatalyst": "minecraft:netherite_ingot",
   "chalkSquareSize": 7,
   "bloodConsumption": 50,
-  "herbsConsumption": 0,
   "customBlocksNeeded": [],
-  "resultEntity": "minecraft:skeleton"
+  "resultEntity": "minecraft:skeleton",
+  "effect": {
+    "type": "tormentum:transform",
+    "result_item": "minecraft:iron_ingot"
+  }
 }

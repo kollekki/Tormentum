@@ -30,7 +30,7 @@ public class Events {
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
-        if (!state.is(Blocks.SKELETON_SKULL) && !state.is(Blocks.SKELETON_WALL_SKULL)) {
+        if (!state.is(Blocks.WITHER_SKELETON_SKULL) && !state.is(Blocks.WITHER_SKELETON_WALL_SKULL)) {
             return;
         }
 

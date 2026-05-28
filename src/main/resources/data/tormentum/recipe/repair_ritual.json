@@ -1,0 +1,12 @@
+{
+  "type": "tormentum:ritual",
+  "ritualTime": 100,
+  "ritualSkull": "tormentum:cracked_skull",
+  "chalkSquareSize": 5,
+  "bloodConsumption": 10,
+  "herbsConsumption": 0,
+  "effect": {
+    "type": "tormentum:repair",
+    "durability_per_blood": 15
+  }
+}
