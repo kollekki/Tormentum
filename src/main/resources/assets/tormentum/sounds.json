@@ -3,5 +3,10 @@
     "sounds": [
       "tormentum:kollekki"
     ]
+  },
+  "mus_music_box": {
+    "sounds": [
+      "tormentum:mus_music_box"
+    ]
   }
 }

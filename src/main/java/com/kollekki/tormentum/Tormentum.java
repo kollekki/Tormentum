@@ -67,6 +67,12 @@ public class Tormentum {
     public static final DeferredHolder<SoundEvent, SoundEvent> KOLLEKKI_SOUND =
             SOUNDS.register(
                     "kollekki",
+                    registryName -> SoundEvent.createFixedRangeEvent(registryName, 8f)
+            );
+
+    public static final DeferredHolder<SoundEvent, SoundEvent> MUS_MUSIC_BOX =
+            SOUNDS.register(
+                    "mus_music_box",
                     registryName -> SoundEvent.createFixedRangeEvent(registryName, 16f)
             );
 
@@ -91,6 +97,11 @@ public class Tormentum {
                 () -> BLOOD_FLOWING.get()
         );
     }
+
+    public static final DeferredBlock<Block> MUSIC_BOX = BLOCKS.registerSimpleBlock("music_box",
+            p -> p.sound(SoundType.WOOD).mapColor(MapColor.WOOD).noOcclusion().strength(1).ignitedByLava());
+
+    public static final DeferredItem<BlockItem> MUSIC_BOX_ITEM = ITEMS.registerSimpleBlockItem("music_box", MUSIC_BOX);
 
     public static final DeferredBlock<Block> CRACKED_SKULL_BLOCK = BLOCKS.registerBlock("cracked_skull",
             CrackedSkullBlock::new,
@@ -205,6 +216,7 @@ public class Tormentum {
                 output.accept(MORTAR_AND_PESTLE.get());
                 output.accept(CRACKED_SKULL_ITEM.get());
                 output.accept(FICOVAT_HEART.get());
+                output.accept(MUSIC_BOX_ITEM.get());
                 output.accept(FLUID_STORAGE_TANK_ITEM.get());
                 output.accept(BLOOD_COLLECTOR_ITEM.get());
             }).build());
