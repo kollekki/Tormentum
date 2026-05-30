@@ -4,8 +4,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,6 +18,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,5 +77,37 @@ public class Events {
         entity.setDeltaMovement(oldMotion.x, 0, oldMotion.z);
 
         entity.setOnGround(true);
+    }
+    private static final Map<UUID, Boolean> WAS_SNEAKING = new HashMap<>();
+
+    @SubscribeEvent
+    public static void onPlayerTick(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+
+        if (player.level().isClientSide()) {
+            return;
+        }
+
+        boolean isSneaking = player.isShiftKeyDown();
+        boolean wasSneaking = WAS_SNEAKING.getOrDefault(player.getUUID(), false);
+
+        ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
+
+        if (
+                !wasSneaking &&
+                        isSneaking &&
+                        helmet.is(Tormentum.KOLLEKKI_ITEM.get())
+        ) {
+            player.level().playSound(
+                    null,
+                    player.blockPosition(),
+                    Tormentum.KOLLEKKI_SOUND.get(),
+                    SoundSource.PLAYERS,
+                    1.0F,
+                    1.0F
+            );
+        }
+
+        WAS_SNEAKING.put(player.getUUID(), isSneaking);
     }
 }

@@ -1,11 +1,10 @@
 {
-  "format_version": "1.21.11",
-  "credit": "Made with Blockbench",
   "texture_size": [32, 32],
   "textures": {
     "1": "tormentum:block/cracked_skull",
     "particle": "tormentum:block/cracked_skull"
   },
+  "ambientocclusion": false,
   "elements": [
     {
       "from": [10.99905, 0.04362, 4],

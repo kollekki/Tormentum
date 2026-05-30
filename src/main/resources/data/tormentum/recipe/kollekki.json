@@ -1,0 +1,13 @@
+{
+  "type": "tormentum:ritual",
+  "ritualTime": 200,
+  "ritualSkull": "tormentum:cracked_skull",
+  "ritualCatalyst": "minecraft:gold_block",
+  "chalkSquareSize": 9,
+  "bloodConsumption": 50,
+  "customBlocksNeeded": [],
+  "effect": {
+    "type": "tormentum:transform",
+    "result_item": "tormentum:kollekki"
+  }
+}

@@ -1,8 +1,9 @@
 {
   "itemGroup.tormentum": "Tormentum",
-  "block.tormentum.chalk": "Giz",
+  "block.tormentum.chalk_block": "Giz",
   "block.tormentum.cracked_skull": "Crânio Rachado",
-  "block.tormentum.blood_puddle": "Poça de Sngue",
+  "block.tormentum.kollekki": "kollekki",
+  "block.tormentum.blood_puddle": "Poça de Sangue",
   "block.tormentum.blood_stain": "Mancha de Sangue",
   "item.tormentum.chalk": "Giz",
   "item.tormentum.athame": "Athame",

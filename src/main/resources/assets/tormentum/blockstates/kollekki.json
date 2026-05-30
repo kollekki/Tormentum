@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=0": { "model": "tormentum:block/kollekki" },
+    "facing=1": { "model": "tormentum:block/kollekki_45" },
+    "facing=2": { "model": "tormentum:block/kollekki", "y": 90 },
+    "facing=3": { "model": "tormentum:block/kollekki_45", "y": 90 },
+    "facing=4": { "model": "tormentum:block/kollekki", "y": 180 },
+    "facing=5": { "model": "tormentum:block/kollekki_45", "y": 180 },
+    "facing=6": { "model": "tormentum:block/kollekki", "y": 270 },
+    "facing=7": { "model": "tormentum:block/kollekki_45", "y": 270 }
+  }
+}
